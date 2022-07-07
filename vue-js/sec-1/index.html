@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background-color: #f5f5f5;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>The book title</p>
+
+      <div v-if="showBooks">
+        <p>{{ title }} - {{author}} - {{age}}</p>
+      </div>
+      <button v-on:click="age++">Increse age +</button>
+      <button v-on:click="age--">decrese age -</button>
+      <br />
+      <br />
+      <div @click="changeTitle('ahmad alaarg')">
+        click me to change the name using parameter
+      </div>
+      <div @click="title ='im change title inside componenet '">
+        click me to change the name
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">hide Books</span>
+        <span v-else>show Books</span>
+      </button>
+      <div v-show="showBooks">showing books</div>
+
+      <!-- v-show is used to show or hide the element -->
+<br>
+<br>
+<br>
+      <!-- mouse events  -->
+      <div class="box" @click="handelEvent($event , 'static data')">click</div>
+      <div class="box" @mouseover="handelEvent">mouse over (enter)</div>
+      <div class="box" @mouseleave="handelEvent($event , 'static data')">
+        mouse leave
+      </div>
+      <div class="box" @dblclick="handelEvent">doble click</div>
+      <div class="box" @mousemove ="handleMouseMove">
+        mouse position {{offset_X}} - {{offset_Y}}
+      </div>
+     </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

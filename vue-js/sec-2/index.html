@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      body{
+        background-color: lightgray;
+        max-width: 960px;
+        margin: 20px auto;
+
+      }
+      p,h3,ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style:none ;
+        background: #fff;
+        margin: 20px auto;
+        padding:10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .fav{
+        background: pink;
+       
+      }
+    </style>
+  </head>
+  <body>
+    hello vue js
+    <div id="app">
+      <!-- <a v-bind:href="url">this is my site</a> -->
+      <a :href="url">this is my site</a>
+
+      <div>
+        <ul>
+          <li v-for="book in books" :class="{fav: book.isFave}">
+            <img :src="book.cover" :alt="book.title" width="50" />
+            <h3>{{book.name}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <p>{{ title }} - {{author}} - {{age}}</p> -->
+      <!-- <button>books</button> -->
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
