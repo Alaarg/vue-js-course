@@ -35,13 +35,14 @@
   </head>
   <body>
     hello vue js
+    <p> </p>
     <div id="app">
       <!-- <a v-bind:href="url">this is my site</a> -->
       <a :href="url">this is my site</a>
 
       <div>
         <ul>
-          <li v-for="book in books" :class="{fav: book.isFave}">
+          <li v-for="book in filteredBooks"  :class="{fav : book.isFave}"  @click="toggleFave(book)">
             <img :src="book.cover" :alt="book.title" width="50" />
             <h3>{{book.name}}</h3>
             <p>{{book.author}}</p>
