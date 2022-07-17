@@ -4,7 +4,7 @@
     <p>Welcome ....</p>
     <!-- <input  type="text" ref="name" /> -->
     <!-- <button @click="handleClick">Click me</button> -->
-    <teleport to=".modal" v-if="showModal">
+    <div to=".modal" v-if="showModal">
       <Modal theme="" @close="togglemodole">
         <template v-slot:links>
           <!-- v-slot is use to create a slot in the component. -->
@@ -14,8 +14,8 @@
         <h1>Ahmad Alaarg</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </Modal>
-    </teleport>
-    <teleport  to=".modal"  v-if="showModalTow">
+    </div>
+    <div  to=".modal"  v-if="showModalTow">
       <Modal  @close="togglemodoleTow">
         <template v-slot:links>
           <!-- v-slot is use to create a slot in the component. -->
@@ -25,7 +25,7 @@
         <h1>Modale Tow </h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </Modal>
-    </teleport>
+    </div>
     <button @click="togglemodole">Show Modal</button>
     <button @click="togglemodoleTow">Show Modal</button>
     <!-- alt click is used to trigger the event when the user clicks on the alt button. -->
