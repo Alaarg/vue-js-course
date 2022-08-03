@@ -1,15 +1,19 @@
 <template>
-  <h1>Jobs</h1>
+ <div>
+   <h1>Jobs</h1>
   <div v-if="jobs.length">
-    <div v-for="job in jobs" :key="job.id" class="jobs">
+  
+  <div v-for="job in jobs" :key="job.id" class="jobs">
       <router-link :to="{ name: 'JobDetails', params: { id: job.id } }">
         <h2>{{ job.title }}</h2>
       </router-link>
     </div>
+
   </div>
   <div v-else>
     <h1>Loading Job Data ..........</h1>
   </div>
+ </div>
 </template>
 
 <script>

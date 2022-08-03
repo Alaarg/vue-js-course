@@ -1,19 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link :to="{ name: 'About' }">About</router-link> |
-    <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
-  </nav>
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link :to="{ name: 'About' }">About</router-link> |
+      <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
+    </nav>
 
-  <button @click="redirect">Redirect</button>
-  <button @click="back">Go Back</button>
-  <button @click="forward">Go ForWard</button>
-  <button @click="reload">Reload</button>
-  
+    <button @click="redirect">Redirect</button>
+    <button @click="back">Go Back</button>
+    <button @click="forward">Go ForWard</button>
+    <button @click="reload">Reload</button>
 
-
-
-  <router-view></router-view>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

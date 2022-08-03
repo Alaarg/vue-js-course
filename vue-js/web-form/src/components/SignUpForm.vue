@@ -1,36 +1,39 @@
 <template>
-  <form @submit.prevent="handelSubmit">
-    <label>Email</label>
-    <input type="email" required v-model="email" />
-    <label>Password</label>
-    <input type="password" required v-model="password" />
-    <div v-if="passwordError" class="error">{{ passwordError }}</div>
-    <label>Role : </label>
-    <select v-model="role">
-      <option value="developoer">Web Developer</option>
-      <option value="designer">Web Designer</option>
-    </select>
+  <div>
+    <form @submit.prevent="handelSubmit">
+      <label>Email</label>
+      <input type="email" required v-model="email" />
+      <label>Password</label>
+      <input type="password" required v-model="password" />
+      <div v-if="passwordError" class="error">{{ passwordError }}</div>
+      <label>Role : </label>
+      <select v-model="role">
+        <option value="developoer">Web Developer</option>
+        <option value="designer">Web Designer</option>
+      </select>
 
-    <div class="terms">
-      <input type="checkbox" required v-model="terms" />
-      <label>I agree to the terms and conditions</label>
-    </div>
+      <div class="terms">
+        <input type="checkbox" required v-model="terms" />
+        <label>I agree to the terms and conditions</label>
+      </div>
 
-    <label> skills </label>
-    <input type="text" v-model="tempSkill" @keyup.alt="addSkill" />
-    <div v-for="skill in skills" :key="skill" class="pill">
-      <span @click="deleteSkill(skill)">{{ skill }}</span>
-    </div>
+      <label> skills </label>
+      <input type="text" v-model="tempSkill" @keyup.alt="addSkill" />
+      <div v-for="skill in skills" :key="skill" class="pill">
+        <span @click="deleteSkill(skill)">{{ skill }}</span>
+      </div>
 
-    <div class="submit">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+      <div class="submit">
+        <button type="submit">Submit</button>
 
-  <p>email :{{ email }}</p>
-  <p>password : {{ password }}</p>
-  <p>Role : {{ role }}</p>
-  <p>Terms : {{ terms }}</p>
+      </div>
+    </form>
+
+    <p>email :{{ email }}</p>
+    <p>password : {{ password }}</p>
+    <p>Role : {{ role }}</p>
+    <p>Terms : {{ terms }}</p>
+  </div>
 </template>
 
 <script>
@@ -57,29 +60,24 @@ export default {
       }
     },
     deleteSkill(skill) {
-      // this.skills.splice(this.skills.indexOf(e.target.innerText), 1); // remove the skill from the array on click
       this.skills = this.skills.filter((item) => {
         return skill !== item;
       });
     },
     handelSubmit() {
-      //avlidate the password
       this.passwordError =
         this.password.length > 5
           ? ""
           : "password must be at least 6 characters";
 
-          if (!this.passwordError) {
-           // console log all data
-            console.log("email",  this.email);
-            console.log("password", this.password);
-            console.log("role", this.role);
-            console.log("skills", this.skills);
-            console.log("terms", this.terms);
-
-            
-
-          }
+      if (!this.passwordError) {
+        // console log all data
+        console.log("email", this.email);
+        console.log("password", this.password);
+        console.log("role", this.role);
+        console.log("skills", this.skills);
+        console.log("terms", this.terms);
+      }
     },
   },
 };
